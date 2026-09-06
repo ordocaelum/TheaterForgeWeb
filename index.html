@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TheaterForge LLC — Multi-Domain Simulation &amp; Visualization</title>
+<meta name="description" content="TheaterForge LLC develops lightweight, browser-native vector engines for multi-domain tactical data visualization and deterministic simulation modeling. NAICS 541715.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="TheaterForge LLC">
+<meta property="og:description" content="Browser-native vector engines for multi-domain tactical data visualization and deterministic simulation modeling.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#0b0f14;
+    --bg-raised:#111823;
+    --line:#1e2a38;
+    --line-soft:#18222e;
+    --fg:#e6edf5;
+    --fg-dim:#93a4b8;
+    --fg-faint:#66788d;
+    --accent:#4a9eff;
+    --accent-dim:#2c6cb8;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:0 28px;}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ---------- header ---------- */
+  header{
+    border-bottom:1px solid var(--line);
+    padding:64px 0 52px;
+    background:
+      radial-gradient(900px 320px at 15% -10%, rgba(74,158,255,.10), transparent 70%),
+      var(--bg);
+  }
+  .mark{
+    display:inline-flex;align-items:center;gap:12px;
+    margin-bottom:30px;
+  }
+  .mark svg{display:block;}
+  .mark span{
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--fg-faint);font-weight:600;
+  }
+  h1{
+    margin:0 0 18px;
+    font-size:clamp(30px,5.2vw,46px);
+    line-height:1.12;
+    letter-spacing:-.02em;
+    font-weight:650;
+  }
+  h1 .llc{color:var(--fg-faint);font-weight:400;}
+  .lede{
+    margin:0;max-width:64ch;
+    font-size:clamp(16px,2.1vw,19px);
+    color:var(--fg-dim);line-height:1.6;
+  }
+  .rule{
+    width:52px;height:2px;background:var(--accent-dim);
+    margin:30px 0 0;border-radius:2px;
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line-soft);}
+  h2{
+    margin:0 0 26px;
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--fg-faint);font-weight:700;
+  }
+  h3{margin:0 0 8px;font-size:16px;font-weight:600;letter-spacing:-.01em;}
+  p{margin:0 0 16px;color:var(--fg-dim);max-width:70ch;}
+  p:last-child{margin-bottom:0;}
+
+  .grid{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .cell{background:var(--bg-raised);padding:22px 24px;}
+  .cell p{font-size:14.5px;margin:0;color:var(--fg-dim);}
+
+  ul.plain{margin:0;padding:0;list-style:none;}
+  ul.plain li{
+    padding:13px 0 13px 22px;position:relative;
+    border-bottom:1px solid var(--line-soft);
+    color:var(--fg-dim);font-size:15px;
+  }
+  ul.plain li:last-child{border-bottom:0;}
+  ul.plain li::before{
+    content:"";position:absolute;left:0;top:21px;
+    width:6px;height:6px;border-radius:50%;background:var(--accent-dim);
+  }
+  ul.plain li strong{color:var(--fg);font-weight:600;}
+
+
+  /* ---------- architecture diagram ---------- */
+  .diagram{margin:0 0 26px;}
+  .diagram svg{width:100%;height:auto;display:block;max-width:760px;}
+  .diagram-cap{
+    margin:18px 0 0;font-size:13.5px;color:var(--fg-faint);
+    max-width:62ch;line-height:1.6;
+  }
+
+  /* ---------- data table ---------- */
+  table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  td{padding:11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top;}
+  td:first-child{color:var(--fg-faint);width:42%;padding-right:20px;}
+  td:last-child{color:var(--fg);}
+  tr:last-child td{border-bottom:0;}
+  .pending{color:var(--fg-faint);font-style:italic;}
+
+  /* ---------- contact ---------- */
+  .contact-row{display:flex;flex-wrap:wrap;gap:44px;}
+  .contact-row div{min-width:180px;}
+  .contact-row .lbl{
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--fg-faint);margin-bottom:7px;font-weight:600;
+  }
+  .contact-row .val{font-size:16px;color:var(--fg);}
+
+  footer{padding:38px 0 56px;color:var(--fg-faint);font-size:13px;line-height:1.7;}
+  footer p{color:var(--fg-faint);font-size:13px;}
+
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+    header{padding:48px 0 40px;}
+    section{padding:42px 0;}
+    .grid-2{grid-template-columns:1fr;}
+    .contact-row{gap:26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="mark">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="24" height="24" rx="3" stroke="#2c6cb8" stroke-width="1.5"/>
+        <path d="M6 19L13 6l7 13" stroke="#4a9eff" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 15h8" stroke="#2c6cb8" stroke-width="1.5"/>
+      </svg>
+      <span>TheaterForge&nbsp;LLC</span>
+    </div>
+
+    <h1>Multi-domain simulation<br>and tactical visualization.</h1>
+
+    <p class="lede">
+      Deterministic multi-domain simulation and trade study software. Browser-native,
+      air-gapped by default, and reproducible by construction.
+    </p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Overview</h2>
+    <p>
+      TheaterForge is a research and development firm focused on making complex
+      multi-domain analysis available on the hardware analysts already have, inside
+      software environments they are already permitted to run.
+    </p>
+    <p>
+      Our engine performs trajectory modeling, telemetry parsing, and orbital
+      computation entirely within a standard browser runtime. Analysis executes locally
+      on the client machine. No mission data is transmitted to an external server, and
+      no installation is required.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Core Competencies</h2>
+    <div class="grid grid-2">
+      <div class="cell">
+        <h3>Multi-Domain Visualization</h3>
+        <p>Space, air, maritime, and ground layers rendered against a single synchronized timeline and common measurement framework.</p>
+      </div>
+      <div class="cell">
+        <h3>Deterministic Simulation Modeling</h3>
+        <p>Reproducible, auditable simulation runs suitable for comparative analysis and methodology review.</p>
+      </div>
+      <div class="cell">
+        <h3>Trajectory &amp; Orbital Propagation</h3>
+        <p>Perturbation-aware orbital propagation with a characterized and documented accuracy envelope.</p>
+      </div>
+      <div class="cell">
+        <h3>Trade-Space Screening</h3>
+        <p>Rapid screening across large option sets to narrow the field before committing high-fidelity modeling resources.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <h2>Deployment Model</h2>
+    <div class="diagram">
+      <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-label="The engine runs entirely inside the browser on the analyst's own machine. No mission data crosses to any external network.">
+        <!-- analyst machine -->
+        <rect x="8" y="26" width="392" height="196" rx="8"
+              fill="#111823" stroke="#1e2a38" stroke-width="1.5"/>
+        <text x="26" y="52" fill="#66788d" font-family="system-ui,sans-serif"
+              font-size="11" letter-spacing="2.2">ANALYST WORKSTATION</text>
+
+        <!-- browser -->
+        <rect x="30" y="70" width="348" height="130" rx="6"
+              fill="#0b0f14" stroke="#2c6cb8" stroke-width="1.5"/>
+        <text x="48" y="94" fill="#4a9eff" font-family="system-ui,sans-serif"
+              font-size="11" letter-spacing="2.2">STANDARD BROWSER</text>
+        <text x="48" y="130" fill="#e6edf5" font-family="system-ui,sans-serif"
+              font-size="16" font-weight="600">Simulation · Analysis</text>
+        <text x="48" y="152" fill="#e6edf5" font-family="system-ui,sans-serif"
+              font-size="16" font-weight="600">Visualization</text>
+        <text x="48" y="178" fill="#93a4b8" font-family="system-ui,sans-serif"
+              font-size="12.5">Everything executes here.</text>
+
+        <!-- severed link -->
+        <line x1="400" y1="124" x2="470" y2="124" stroke="#1e2a38"
+              stroke-width="1.5" stroke-dasharray="5 5"/>
+        <line x1="520" y1="124" x2="590" y2="124" stroke="#1e2a38"
+              stroke-width="1.5" stroke-dasharray="5 5"/>
+        <line x1="481" y1="112" x2="509" y2="136" stroke="#8b3a3a" stroke-width="2.2"
+              stroke-linecap="round"/>
+        <line x1="509" y1="112" x2="481" y2="136" stroke="#8b3a3a" stroke-width="2.2"
+              stroke-linecap="round"/>
+        <text x="495" y="164" fill="#93a4b8" font-family="system-ui,sans-serif"
+              font-size="11.5" text-anchor="middle">no mission data</text>
+
+        <!-- external -->
+        <rect x="592" y="70" width="160" height="108" rx="8"
+              fill="none" stroke="#1e2a38" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="672" y="118" fill="#66788d" font-family="system-ui,sans-serif"
+              font-size="12.5" text-anchor="middle">External network</text>
+        <text x="672" y="140" fill="#66788d" font-family="system-ui,sans-serif"
+              font-size="12.5" text-anchor="middle">and cloud services</text>
+      </svg>
+    </div>
+    <p class="diagram-cap">
+      There is no server component and no installation. The engine executes inside a standard
+      browser on the machine the analyst already has, and mission data has nowhere to go.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Differentiators</h2>
+    <ul class="plain">
+      <li><strong>Zero-footprint deployment.</strong> Runs in a standard browser on the machine the analyst already has. No installation, no backend to accredit, no workstation configuration &mdash; materially lowering the barrier to fielding analysis capability inside restricted enclaves.</li>
+      <li><strong>Air-gapped by default.</strong> Ships with its network gate closed. Simulation data never leaves the host machine under any configuration: no telemetry, no scenario upload, no external analysis service.</li>
+      <li><strong>Provable reproducibility.</strong> Every probabilistic outcome is keyed to the identity of the individual event rather than a global sequence. Adding an element to a scenario does not perturb unrelated outcomes &mdash; the property that makes a measured difference between design points attributable to the design, not to noise.</li>
+      <li><strong>One engine, two modes.</strong> The interactive console and the batch analysis harness execute the same code on the same physics cadence. No data-generation versus presentation divergence to reconcile.</li>
+      <li><strong>Screening scale.</strong> A 30-parameter trade space is screened in 32 runs, against 1.07 billion for the equivalent full factorial. Design orthogonality is asserted by automated test.</li>
+      <li><strong>Engineering discipline evidenced, not asserted.</strong> 171 automated tests across 17 suites, full static type checking, generated software bill of materials, and continuous integration.</li>
+      <li><strong>Honest verification posture.</strong> The system is verified, and one component &mdash; orbital propagation including J2 secular perturbation &mdash; is validated against published reference values. Remaining components are documented as unvalidated. Capability and limitation are stated together.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Company Data</h2>
+    <table>
+      <tr><td>Legal name</td><td>TheaterForge LLC</td></tr>
+      <tr><td>Entity type</td><td>Limited Liability Company (Utah), member-managed</td></tr>
+      <tr><td>State entity number</td><td>14733139-0160</td></tr>
+      <tr><td>Established</td><td>2 September 2026</td></tr>
+      <tr><td>Business size</td><td>Small business</td></tr>
+      <tr><td>Technology readiness</td><td><strong>TRL 4</strong></td></tr>
+      <tr><td>Primary NAICS</td><td><strong>541715</strong> — Research and Development in the Physical, Engineering, and Life Sciences</td></tr>
+      <tr><td>Additional NAICS</td><td>541511 · 541512 · 541330</td></tr>
+      <tr><td>UEI</td><td class="pending">Registration in process</td></tr>
+      <tr><td>CAGE code</td><td class="pending">Registration in process</td></tr>
+      <tr><td>Place of performance</td><td>West Jordan, Utah, United States</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-row">
+      <div>
+        <div class="lbl">Principal</div>
+        <div class="val">Leland Doss</div>
+      </div>
+      <div>
+        <div class="lbl">Email</div>
+        <div class="val"><a href="mailto:leland@theaterforge.com">leland@theaterforge.com</a></div>
+      </div>
+      <div>
+        <div class="lbl">Telephone</div>
+        <div class="val"><a href="tel:+14352729294">435-272-9294</a></div>
+      </div>
+      <div>
+        <div class="lbl">Location</div>
+        <div class="val">West Jordan, Utah</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>
+      &copy; 2026 <strong style="color:var(--fg-dim);font-weight:600;">TheaterForge LLC</strong>,
+      a Utah limited liability company. All rights reserved.
+    </p>
+    <p>
+      Content on this site is general and non-proprietary. It describes capability at a
+      high level only and contains no classified, controlled unclassified, or
+      export-controlled technical information.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
