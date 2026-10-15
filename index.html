@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TheaterForge LLC — Multi-Domain Simulation &amp; Visualization</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <meta name="description" content="TheaterForge LLC develops lightweight, browser-native vector engines for multi-domain tactical data visualization and deterministic simulation modeling. NAICS 541715.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="TheaterForge LLC">
@@ -113,6 +114,7 @@
   td:first-child{color:var(--fg-faint);width:42%;padding-right:20px;}
   td:last-child{color:var(--fg);}
   tr:last-child td{border-bottom:0;}
+  .mark .logo{display:block;width:72px;height:auto;}
   .pending{color:var(--fg-faint);font-style:italic;}
 
   /* ---------- contact ---------- */
@@ -141,11 +143,7 @@
 <header>
   <div class="wrap">
     <div class="mark">
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="24" height="24" rx="3" stroke="#2c6cb8" stroke-width="1.5"/>
-        <path d="M6 19L13 6l7 13" stroke="#4a9eff" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M9 15h8" stroke="#2c6cb8" stroke-width="1.5"/>
-      </svg>
+      <img src="logo.png" alt="TheaterForge shield logo" width="72" height="73" class="logo">
       <span>TheaterForge&nbsp;LLC</span>
     </div>
 
@@ -261,9 +259,11 @@
       <li><strong>Air-gapped by default.</strong> Ships with its network gate closed. Simulation data never leaves the host machine under any configuration: no telemetry, no scenario upload, no external analysis service.</li>
       <li><strong>Provable reproducibility.</strong> Every probabilistic outcome is keyed to the identity of the individual event rather than a global sequence. Adding an element to a scenario does not perturb unrelated outcomes &mdash; the property that makes a measured difference between design points attributable to the design, not to noise.</li>
       <li><strong>One engine, two modes.</strong> The interactive console and the batch analysis harness execute the same code on the same physics cadence. No data-generation versus presentation divergence to reconcile.</li>
-      <li><strong>Screening scale.</strong> A 30-parameter trade space is screened in 32 runs, against 1.07 billion for the equivalent full factorial. Design orthogonality is asserted by automated test.</li>
-      <li><strong>Engineering discipline evidenced, not asserted.</strong> 171 automated tests across 17 suites, full static type checking, generated software bill of materials, and continuous integration.</li>
-      <li><strong>Honest verification posture.</strong> The system is verified, and one component &mdash; orbital propagation including J2 secular perturbation &mdash; is validated against published reference values. Remaining components are documented as unvalidated. Capability and limitation are stated together.</li>
+      <li><strong>Findings a nominal run reports as success.</strong> In a layered air and missile defense study, a raid of eight was fully intercepted with two tenths of a second of worst-case margin remaining &mdash; passing the leak-rate requirement and failing the timing requirement in the same run. In a multi-orbit missile-warning study, operator decision delay dominated every architecture parameter by roughly six to one. Both results are committed, hashed, and regenerable by a third party. Both are results about the model, not about any fielded architecture: parameter values are notional and the sensing models are not yet validated. What is demonstrated is the method and the reproducibility of the finding.</li>
+      <li><strong>Screening scale, verified.</strong> A 30-parameter trade space is screened in 32 runs, against 1.07 billion for the equivalent full factorial. The design is verified by automated test to be saturated, to keep every pair of columns orthogonal, to balance every column, and to recover a known effect from a synthetic response. Test output is committed and hashed.</li>
+      <li><strong>Throughput.</strong> Approximately 1,000&ndash;3,000&times; real time on a single laptop core, scenario-dependent. A twelve-design-point study covering six engagement-hours completes in roughly ten seconds.</li>
+      <li><strong>Engineering discipline evidenced, not asserted.</strong> 379 automated tests across 36 suites at tag v0.3.0, static type checking over both the application and the command-line analysis harness, generated software bill of materials, continuous integration, and a runnable timestep convergence study that reproduces its own verification result on demand.</li>
+      <li><strong>Honest verification posture.</strong> The system is verified, and one component &mdash; orbital propagation including J2 secular perturbation &mdash; is validated against published reference values. Remaining components are documented as unvalidated. Byte-identical reproduction is claimed for the same code on the same runtime, and every artefact records the version used. Capability and limitation are stated together.</li>
     </ul>
   </div>
 </section>
@@ -281,7 +281,8 @@
       <tr><td>Primary NAICS</td><td><strong>541715</strong> — Research and Development in the Physical, Engineering, and Life Sciences</td></tr>
       <tr><td>Additional NAICS</td><td>541511 · 541512 · 541330</td></tr>
       <tr><td>UEI</td><td><strong>FTQ7GVNLKDX5</strong></td></tr>
-      <tr><td>CAGE code</td><td class="pending">Registration in process</td></tr>
+      <tr><td>CAGE code</td><td><strong>257P5</strong></td></tr>
+      <tr><td>SAM.gov registration</td><td>Active</td></tr>
       <tr><td>Place of performance</td><td>West Jordan, Utah, United States</td></tr>
     </table>
   </div>
@@ -306,6 +307,10 @@
       <div>
         <div class="lbl">Location</div>
         <div class="val">West Jordan, Utah</div>
+      </div>
+      <div>
+        <div class="lbl">Capability statement</div>
+        <div class="val"><a href="TheaterForge_Capability_Statement.pdf" download>Download PDF</a></div>
       </div>
     </div>
   </div>
