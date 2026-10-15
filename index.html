@@ -150,8 +150,9 @@
     <h1>Multi-domain simulation<br>and tactical visualization.</h1>
 
     <p class="lede">
-      Deterministic multi-domain simulation and trade study software. Browser-native,
-      air-gapped by default, and reproducible by construction.
+      Deterministic multi-domain simulation and trade study software &mdash; and the reproducible
+      environment AI/ML needs to be trained and tested against. Browser-native, offline by default,
+      and reproducible by construction.
     </p>
     <div class="rule"></div>
   </div>
@@ -193,6 +194,14 @@
       <div class="cell">
         <h3>Trade-Space Screening</h3>
         <p>Rapid screening across large option sets to narrow the field before committing high-fidelity modeling resources.</p>
+      </div>
+      <div class="cell">
+        <h3>AI/ML Training &amp; Evaluation Environments <span class="pending">&middot; in development</span></h3>
+        <p>The engine wrapped as a Gym-compatible reinforcement-learning environment: agents act at decision points such as sensor tasking, and are trained across the trade space and scored against doctrine on identical, reproducible terms.</p>
+      </div>
+      <div class="cell">
+        <h3>Analyst-Facing Decision Support</h3>
+        <p>3D geospatial and 2D tactical visualization, scenario authoring, and self-contained exportable reporting.</p>
       </div>
     </div>
   </div>
@@ -256,10 +265,11 @@
     <h2>Differentiators</h2>
     <ul class="plain">
       <li><strong>Zero-footprint deployment.</strong> Runs in a standard browser on the machine the analyst already has. No installation, no backend to accredit, no workstation configuration &mdash; materially lowering the barrier to fielding analysis capability inside restricted enclaves.</li>
-      <li><strong>Air-gapped by default.</strong> Ships with its network gate closed. Simulation data never leaves the host machine under any configuration: no telemetry, no scenario upload, no external analysis service.</li>
+      <li><strong>Offline by default.</strong> Ships with its network gate closed and runs fully offline: no telemetry, no scenario upload, no external analysis service. Optional basemap imagery is the only network-capable feature and can be disabled or served locally.</li>
       <li><strong>Provable reproducibility.</strong> Every probabilistic outcome is keyed to the identity of the individual event rather than a global sequence. Adding an element to a scenario does not perturb unrelated outcomes &mdash; the property that makes a measured difference between design points attributable to the design, not to noise.</li>
       <li><strong>One engine, two modes.</strong> The interactive console and the batch analysis harness execute the same code on the same physics cadence. No data-generation versus presentation divergence to reconcile.</li>
       <li><strong>Findings a nominal run reports as success.</strong> In a layered air and missile defense study, a raid of eight was fully intercepted with two tenths of a second of worst-case margin remaining &mdash; passing the leak-rate requirement and failing the timing requirement in the same run. In a multi-orbit missile-warning study, operator decision delay dominated every architecture parameter by roughly six to one. Both results are committed, hashed, and regenerable by a third party. Both are results about the model, not about any fielded architecture: parameter values are notional and the sensing models are not yet validated. What is demonstrated is the method and the reproducibility of the finding.</li>
+      <li><strong>Safe to learn against.</strong> A measure whose event never occurs returns null, never a sentinel value, and requirement checks reject null &mdash; so an undetected threat can never score as comfortable margin, and an agent trained against the engine cannot learn to win by letting threats through.</li>
       <li><strong>Screening scale, verified.</strong> A 30-parameter trade space is screened in 32 runs, against 1.07 billion for the equivalent full factorial. The design is verified by automated test to be saturated, to keep every pair of columns orthogonal, to balance every column, and to recover a known effect from a synthetic response. Test output is committed and hashed.</li>
       <li><strong>Throughput.</strong> Approximately 1,000&ndash;3,000&times; real time on a single laptop core, scenario-dependent. A twelve-design-point study covering six engagement-hours completes in roughly ten seconds.</li>
       <li><strong>Engineering discipline evidenced, not asserted.</strong> 379 automated tests across 36 suites at tag v0.3.0, static type checking over both the application and the command-line analysis harness, generated software bill of materials, continuous integration, and a runnable timestep convergence study that reproduces its own verification result on demand.</li>
