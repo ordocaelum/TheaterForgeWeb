@@ -21,6 +21,8 @@
     --fg-faint:#66788d;
     --accent:#4a9eff;
     --accent-dim:#2c6cb8;
+    --pass:#5fbf7f;
+    --fail:#e05252;
   }
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
@@ -108,6 +110,48 @@
     max-width:62ch;line-height:1.6;
   }
 
+  /* ---------- findings charts ---------- */
+  .figs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start;}
+  .fig{margin:0;padding:22px 20px 18px;background:var(--bg-raised);border:1px solid var(--line-soft);border-radius:8px;}
+  .fig svg{display:block;width:100%;height:auto;overflow:visible;}
+  .fig text{fill:var(--fg-dim);font-size:14px;}
+  .fig .hl{fill:var(--fg);font-size:26px;font-weight:650;letter-spacing:-.01em;}
+  .fig .hl.s{font-size:19px;}
+  .fig .b{fill:var(--fg);font-weight:600;}
+  .fig .cap{fill:var(--fg-faint);font-size:11px;letter-spacing:.14em;font-weight:600;}
+  .fig .v{fill:var(--fg-faint);font-size:12.5px;font-variant-numeric:tabular-nums;}
+  .fig .m{font:12px ui-monospace,SFMono-Regular,Consolas,monospace;fill:var(--fg-dim);}
+  .fig .m.b{fill:var(--fg);font-weight:700;}
+  .fig .q{fill:var(--fg-faint);font-size:12.5px;}
+  .fig .q.b{fill:var(--fg-dim);font-weight:600;}
+  .fig .pass{fill:var(--pass);font-weight:700;}
+  .fig .fail{fill:var(--fail);font-weight:700;}
+  .fig .sep{stroke:var(--line);fill:none;}
+  .fig .bar{fill:var(--accent-dim);}
+  .fig .bar.lead{fill:var(--accent);}
+  .fig .track{fill:none;stroke:var(--line);}
+  .fig .hit{fill:var(--accent);}
+  .fig .link{stroke:var(--line);stroke-width:1.5;fill:none;}
+  .fig .lo{stroke:var(--line);stroke-width:10;}
+  .fig .hi{stroke:var(--accent-dim);stroke-width:10;fill:none;}
+  .fig .seam{stroke:var(--bg-raised);stroke-width:1;fill:none;}
+  .fig .hi-k{fill:var(--accent-dim);} .fig .lo-k{fill:var(--line);}
+  /* Final state is the resting state; animations only run FROM an initial state. */
+  .fig .grow,.fig .fill,.fig .shrink{transform-box:fill-box;transform-origin:0 0;}
+  .fig .grow{animation:f-grow .6s cubic-bezier(.25,.6,.3,1) backwards;}
+  .fig .fill{animation:f-fill .35s linear backwards;}
+  .fig .fade{animation:f-fade .3s linear backwards;}
+  .fig .shrink{animation:f-shrink 1.1s cubic-bezier(.55,0,.35,1) .4s backwards;}
+  @keyframes f-grow{from{transform:scaleX(0);}}
+  @keyframes f-fill{from{transform:scaleY(0);}}
+  @keyframes f-fade{from{opacity:0;}}
+  @keyframes f-shrink{from{transform:scaleX(165);}}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    /* every chart renders its final state: no element's resting style is hidden */
+  }
+
   /* ---------- data table ---------- */
   table{width:100%;border-collapse:collapse;font-size:14.5px;}
   td{padding:11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top;}
@@ -134,6 +178,8 @@
     header{padding:48px 0 40px;}
     section{padding:42px 0;}
     .grid-2{grid-template-columns:1fr;}
+    .figs{grid-template-columns:1fr;}
+    .fig{padding:16px 12px 14px;}
     .contact-row{gap:26px;}
   }
 </style>
@@ -262,15 +308,101 @@
 
 <section>
   <div class="wrap">
+    <h2>Findings</h2>
+    <p>Four results from committed, hashed artefacts. Each figure states its own limits.</p>
+    <div class="figs">
+      <figure class="fig">
+<svg viewBox="0 0 400 334" role="img" aria-label="Factor dominance: operator decision delay versus architecture parameters" aria-labelledby="f1t" aria-describedby="f1d">
+<title id="f1t">Factor dominance: operator decision delay versus architecture parameters</title>
+<desc id="f1d">Relative effect on worst-case decision margin: operator decision delay 1.00; architecture parameter B 0.16; architecture parameter C 0.13; architecture parameter D 0.11; architecture parameter E 0.09; architecture parameter F 0.09; architecture parameter G 0.05. Operator delay exceeds every architecture parameter by about six to one. Notional model, parameter values notional, sensing models not yet validated; a result about the model, not any fielded architecture.</desc>
+<text class="hl" x="0" y="30">~6 : 1</text>
+<text class="l" x="92" y="28">over every architecture parameter</text>
+<text class="cap" x="0" y="58">RELATIVE EFFECT ON WORST-CASE DECISION MARGIN</text>
+<text class="l b" x="0" y="95">Operator decision delay</text><rect class="bar lead grow" x="178" y="84" width="180.0" height="14" style="animation-delay:0ms"/><text class="v fade" x="364.0" y="95" style="animation-delay:500ms">1.00</text><text class="l" x="0" y="121">Parameter B</text><rect class="bar grow" x="178" y="110" width="29.6" height="14" style="animation-delay:60ms"/><text class="v fade" x="213.6" y="121" style="animation-delay:560ms">0.16</text><text class="l" x="0" y="147">Parameter C</text><rect class="bar grow" x="178" y="136" width="23.8" height="14" style="animation-delay:120ms"/><text class="v fade" x="207.8" y="147" style="animation-delay:620ms">0.13</text><text class="l" x="0" y="173">Parameter D</text><rect class="bar grow" x="178" y="162" width="20.4" height="14" style="animation-delay:180ms"/><text class="v fade" x="204.4" y="173" style="animation-delay:680ms">0.11</text><text class="l" x="0" y="199">Parameter E</text><rect class="bar grow" x="178" y="188" width="16.9" height="14" style="animation-delay:240ms"/><text class="v fade" x="200.9" y="199" style="animation-delay:740ms">0.09</text><text class="l" x="0" y="225">Parameter F</text><rect class="bar grow" x="178" y="214" width="16.2" height="14" style="animation-delay:300ms"/><text class="v fade" x="200.2" y="225" style="animation-delay:800ms">0.09</text><text class="l" x="0" y="251">Parameter G</text><rect class="bar grow" x="178" y="240" width="8.8" height="14" style="animation-delay:360ms"/><text class="v fade" x="192.8" y="251" style="animation-delay:860ms">0.05</text>
+<path class="sep" d="M0 278H400"/>
+<text class="q" x="0" y="296">Notional multi-orbit model. Parameter values notional; sensing</text>
+<text class="q" x="0" y="312">models not yet validated. Result about the model, not any fielded</text>
+<text class="q" x="0" y="328">architecture. Committed and hashed.</text>
+</svg>
+      </figure>
+      <figure class="fig">
+<svg viewBox="0 0 400 384.0" role="img" aria-label="Screening design: 30 factors in 32 runs" aria-labelledby="f2t" aria-describedby="f2d">
+<title id="f2t">Screening design: 30 factors in 32 runs</title>
+<desc id="f2d">The committed 32-run by 30-factor two-level design matrix. Each column is one factor, each row one run; filled cells are the high level. Every column is balanced and every pair of columns is orthogonal. Resolves all 30 main effects in 32 runs; two-factor interactions are aliased by construction and the aliasing structure is reported.</desc>
+<text class="hl" x="0" y="30">30 main effects</text>
+<text class="l" x="196" y="28">resolved in 32 runs</text>
+<text class="cap" x="40" y="66">30 FACTORS &#8594;</text>
+<text class="cap" transform="translate(28 76) rotate(90)">32 RUNS &#8594;</text>
+<path class="lo" d="M45.5 76v208M56.5 76v208M67.5 76v208M78.5 76v208M89.5 76v208M100.5 76v208M111.5 76v208M122.5 76v208M133.5 76v208M144.5 76v208M155.5 76v208M166.5 76v208M177.5 76v208M188.5 76v208M199.5 76v208M210.5 76v208M221.5 76v208M232.5 76v208M243.5 76v208M254.5 76v208M265.5 76v208M276.5 76v208M287.5 76v208M298.5 76v208M309.5 76v208M320.5 76v208M331.5 76v208M342.5 76v208M353.5 76v208M364.5 76v208"/>
+<path class="hi fill" d="M45.5 76v208" stroke-dasharray="6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5" style="animation-delay:0ms"/><path class="hi fill" d="M56.5 76v208" stroke-dasharray="13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13" style="animation-delay:40ms"/><path class="hi fill" d="M67.5 76v208" stroke-dasharray="6.5 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 6.5 0" style="animation-delay:80ms"/><path class="hi fill" d="M78.5 76v208" stroke-dasharray="26 26 26 26 26 26 26 26" style="animation-delay:120ms"/><path class="hi fill" d="M89.5 76v208" stroke-dasharray="6.5 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 6.5 0" style="animation-delay:160ms"/><path class="hi fill" d="M100.5 76v208" stroke-dasharray="13 26 26 26 26 26 26 26 13 0" style="animation-delay:200ms"/><path class="hi fill" d="M111.5 76v208" stroke-dasharray="6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5" style="animation-delay:240ms"/><path class="hi fill" d="M122.5 76v208" stroke-dasharray="52 52 52 52" style="animation-delay:280ms"/><path class="hi fill" d="M133.5 76v208" stroke-dasharray="6.5 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 6.5 0" style="animation-delay:320ms"/><path class="hi fill" d="M144.5 76v208" stroke-dasharray="13 13 13 26 13 13 26 13 13 26 13 13 13 0" style="animation-delay:360ms"/><path class="hi fill" d="M155.5 76v208" stroke-dasharray="6.5 13 13 13 6.5 6.5 13 13 13 6.5 6.5 13 13 13 6.5 6.5 13 13 13 6.5" style="animation-delay:400ms"/><path class="hi fill" d="M166.5 76v208" stroke-dasharray="26 52 52 52 26 0" style="animation-delay:440ms"/><path class="hi fill" d="M177.5 76v208" stroke-dasharray="6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5" style="animation-delay:480ms"/><path class="hi fill" d="M188.5 76v208" stroke-dasharray="13 26 13 13 26 13 13 26 13 13 26 13" style="animation-delay:520ms"/><path class="hi fill" d="M199.5 76v208" stroke-dasharray="6.5 13 6.5 6.5 13 13 13 6.5 6.5 13 13 13 6.5 6.5 13 13 13 6.5 6.5 13 6.5 0" style="animation-delay:560ms"/><path class="hi fill" d="M210.5 76v208" stroke-dasharray="104 104" style="animation-delay:600ms"/><path class="hi fill" d="M221.5 76v208" stroke-dasharray="6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 0" style="animation-delay:640ms"/><path class="hi fill" d="M232.5 76v208" stroke-dasharray="13 13 13 13 13 13 13 26 13 13 13 13 13 13 13 0" style="animation-delay:680ms"/><path class="hi fill" d="M243.5 76v208" stroke-dasharray="6.5 13 13 13 13 13 13 13 6.5 6.5 13 13 13 13 13 13 13 6.5" style="animation-delay:720ms"/><path class="hi fill" d="M254.5 76v208" stroke-dasharray="26 26 26 52 26 26 26 0" style="animation-delay:760ms"/><path class="hi fill" d="M265.5 76v208" stroke-dasharray="6.5 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 6.5" style="animation-delay:800ms"/><path class="hi fill" d="M276.5 76v208" stroke-dasharray="13 26 26 26 13 13 26 26 26 13" style="animation-delay:840ms"/><path class="hi fill" d="M287.5 76v208" stroke-dasharray="6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 13 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 0" style="animation-delay:880ms"/><path class="hi fill" d="M298.5 76v208" stroke-dasharray="52 104 52 0" style="animation-delay:920ms"/><path class="hi fill" d="M309.5 76v208" stroke-dasharray="6.5 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 6.5" style="animation-delay:960ms"/><path class="hi fill" d="M320.5 76v208" stroke-dasharray="13 13 13 26 13 13 13 13 13 13 26 13 13 13" style="animation-delay:1000ms"/><path class="hi fill" d="M331.5 76v208" stroke-dasharray="6.5 13 13 13 6.5 6.5 13 13 13 13 13 13 13 6.5 6.5 13 13 13 6.5 0" style="animation-delay:1040ms"/><path class="hi fill" d="M342.5 76v208" stroke-dasharray="26 52 26 26 52 26" style="animation-delay:1080ms"/><path class="hi fill" d="M353.5 76v208" stroke-dasharray="6.5 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 13 6.5 6.5 13 6.5 6.5 6.5 6.5 6.5 6.5 13 6.5 6.5 6.5 0" style="animation-delay:1120ms"/><path class="hi fill" d="M364.5 76v208" stroke-dasharray="13 26 13 13 26 26 26 13 13 26 13 0" style="animation-delay:1160ms"/>
+<path class="seam" d="M40 82.5h330M40 89h330M40 95.5h330M40 102h330M40 108.5h330M40 115h330M40 121.5h330M40 128h330M40 134.5h330M40 141h330M40 147.5h330M40 154h330M40 160.5h330M40 167h330M40 173.5h330M40 180h330M40 186.5h330M40 193h330M40 199.5h330M40 206h330M40 212.5h330M40 219h330M40 225.5h330M40 232h330M40 238.5h330M40 245h330M40 251.5h330M40 258h330M40 264.5h330M40 271h330M40 277.5h330"/>
+<rect class="key hi-k" x="40" y="297.0" width="10" height="10"/><text class="v" x="56" y="306.0">high level</text>
+<rect class="key lo-k" x="150" y="297.0" width="10" height="10"/><text class="v" x="166" y="306.0">low level</text>
+<text class="v" x="400" y="306.0" text-anchor="end">balanced &#183; orthogonal</text>
+<path class="sep" d="M0 328.0H400"/>
+<text class="q" x="0" y="346.0">Resolves all 30 main effects in 32 runs. Two-factor interactions</text>
+<text class="q" x="0" y="362.0">are aliased by construction and the aliasing structure is</text>
+<text class="q" x="0" y="378.0">reported.</text>
+</svg>
+      </figure>
+      <figure class="fig">
+<svg viewBox="0 0 400 366" role="img" aria-label="Cross-check against NASA GMAT: access windows" aria-labelledby="f3t" aria-describedby="f3d">
+<title id="f3t">Cross-check against NASA GMAT: access windows</title>
+<desc id="f3d">Satellite visibility windows over a ground point, NASA GMAT R2026a versus TheaterForge, seven days, J2-only force model. 51 of 51 windows matched; maximum boundary error 10.4 seconds on windows 209 to 823 seconds long. The first run failed on an input-convention mismatch; both runs are on the record. Residual under investigation. No component is claimed as validated.</desc>
+<text class="hl" x="0" y="30">51 / 51</text>
+<text class="l" x="92" y="28">windows matched</text>
+<text class="l" x="0" y="54">10.4 s max boundary error, on windows of 209&#8211;823 s</text>
+<text class="cap" x="22" y="86">NASA GMAT</text>
+<text class="cap" x="201" y="86">THEATERFORGE</text>
+<text class="cap" x="400" y="86" text-anchor="end">MAX &#916;</text>
+<text class="v" x="0" y="112">1</text><text class="m fade" x="22" y="112" style="animation-delay:0ms">Jan 1 01:42:19.5</text><path class="link grow" d="M143 108h52" style="animation-delay:120ms"/><text class="m fade" x="201" y="112" style="animation-delay:240ms">Jan 1 01:42:24.1</text><text class="m fade" x="400" y="112" text-anchor="end" style="animation-delay:300ms">4.9 s</text><text class="v" x="0" y="132">2</text><text class="m fade" x="22" y="132" style="animation-delay:140ms">Jan 1 03:21:48.3</text><path class="link grow" d="M143 128h52" style="animation-delay:260ms"/><text class="m fade" x="201" y="132" style="animation-delay:380ms">Jan 1 03:21:54.3</text><text class="m fade" x="400" y="132" text-anchor="end" style="animation-delay:440ms">6.0 s</text><text class="v" x="0" y="152">3</text><text class="m fade" x="22" y="152" style="animation-delay:280ms">Jan 1 05:03:50.3</text><path class="link grow" d="M143 148h52" style="animation-delay:400ms"/><text class="m fade" x="201" y="152" style="animation-delay:520ms">Jan 1 05:03:56.6</text><text class="m fade" x="400" y="152" text-anchor="end" style="animation-delay:580ms">6.3 s</text><text class="v" x="0" y="172">4</text><text class="m fade" x="22" y="172" style="animation-delay:420ms">Jan 1 06:46:31.3</text><path class="link grow" d="M143 168h52" style="animation-delay:540ms"/><text class="m fade" x="201" y="172" style="animation-delay:660ms">Jan 1 06:46:36.5</text><text class="m fade" x="400" y="172" text-anchor="end" style="animation-delay:720ms">5.8 s</text><text class="v" x="0" y="192">5</text><text class="m fade" x="22" y="192" style="animation-delay:560ms">Jan 1 08:28:19.0</text><path class="link grow" d="M143 188h52" style="animation-delay:680ms"/><text class="m fade" x="201" y="192" style="animation-delay:800ms">Jan 1 08:28:22.7</text><text class="m fade" x="400" y="192" text-anchor="end" style="animation-delay:860ms">6.4 s</text><text class="v" x="0" y="212">6</text><text class="m fade" x="22" y="212" style="animation-delay:700ms">Jan 1 10:09:32.9</text><path class="link grow" d="M143 208h52" style="animation-delay:820ms"/><text class="m fade" x="201" y="212" style="animation-delay:940ms">Jan 1 10:09:36.0</text><text class="m fade" x="400" y="212" text-anchor="end" style="animation-delay:1000ms">5.9 s</text><text class="v" x="0" y="232">7</text><text class="m fade" x="22" y="232" style="animation-delay:840ms">Jan 1 11:51:55.1</text><path class="link grow" d="M143 228h52" style="animation-delay:960ms"/><text class="m fade" x="201" y="232" style="animation-delay:1080ms">Jan 1 11:51:58.7</text><text class="m fade" x="400" y="232" text-anchor="end" style="animation-delay:1140ms">4.2 s</text><text class="v" x="0" y="252">8</text><text class="m fade" x="22" y="252" style="animation-delay:980ms">Jan 2 00:21:43.4</text><path class="link grow" d="M143 248h52" style="animation-delay:1100ms"/><text class="m fade" x="201" y="252" style="animation-delay:1220ms">Jan 2 00:21:42.7</text><text class="m fade" x="400" y="252" text-anchor="end" style="animation-delay:1280ms">10.4 s</text>
+<text class="v" x="22" y="278">Window start, UTC. Windows 1&#8211;8 of 51 shown.</text>
+<path class="sep" d="M0 294H400"/>
+<text class="q" x="0" y="312">Cross-checked against NASA GMAT R2026a under an identical J2-only</text>
+<text class="q" x="0" y="328">force model. The first run failed on an input-convention mismatch;</text>
+<text class="q" x="0" y="344">both runs are on the record. Residual under investigation.</text>
+<text class="q b" x="0" y="360">No component is claimed as validated.</text>
+</svg>
+<table class="sr-only"><caption>Windows 1 to 8 of 51, start times UTC</caption>
+<tr><th>Window</th><th>NASA GMAT start</th><th>TheaterForge start</th><th>Max boundary error</th></tr>
+<tr><td>1</td><td>2026-01-01 01:42:19.599</td><td>2026-01-01 01:42:24.174</td><td>4.9 s</td></tr><tr><td>2</td><td>2026-01-01 03:21:48.326</td><td>2026-01-01 03:21:54.370</td><td>6.0 s</td></tr><tr><td>3</td><td>2026-01-01 05:03:50.390</td><td>2026-01-01 05:03:56.697</td><td>6.3 s</td></tr><tr><td>4</td><td>2026-01-01 06:46:31.399</td><td>2026-01-01 06:46:36.572</td><td>5.8 s</td></tr><tr><td>5</td><td>2026-01-01 08:28:19.037</td><td>2026-01-01 08:28:22.786</td><td>6.4 s</td></tr><tr><td>6</td><td>2026-01-01 10:09:32.955</td><td>2026-01-01 10:09:36.076</td><td>5.9 s</td></tr><tr><td>7</td><td>2026-01-01 11:51:55.130</td><td>2026-01-01 11:51:58.702</td><td>4.2 s</td></tr><tr><td>8</td><td>2026-01-02 00:21:43.462</td><td>2026-01-02 00:21:42.769</td><td>10.4 s</td></tr>
+</table>
+      </figure>
+      <figure class="fig">
+<svg viewBox="0 0 400 252" role="img" aria-label="Raid of eight: fully intercepted, margin collapsed" aria-labelledby="f4t" aria-describedby="f4d">
+<title id="f4t">Raid of eight: fully intercepted, margin collapsed</title>
+<desc id="f4d">A raid of 8 was fully intercepted, 8 of 8, with 0.2 seconds of worst-case margin remaining. Leak-rate requirement: PASS. Timing requirement: FAIL. Same run. Notional model, parameter values notional, models not yet validated; a result about the model, not any fielded architecture.</desc>
+<text class="hl s" x="0" y="26">Raid of 8, fully intercepted</text>
+<text class="cap" x="0" y="57">INTERCEPTS</text>
+<rect class="hit fade" x="96" y="44" width="16" height="16" rx="2" style="animation-delay:0ms"/><rect class="hit fade" x="118" y="44" width="16" height="16" rx="2" style="animation-delay:80ms"/><rect class="hit fade" x="140" y="44" width="16" height="16" rx="2" style="animation-delay:160ms"/><rect class="hit fade" x="162" y="44" width="16" height="16" rx="2" style="animation-delay:240ms"/><rect class="hit fade" x="184" y="44" width="16" height="16" rx="2" style="animation-delay:320ms"/><rect class="hit fade" x="206" y="44" width="16" height="16" rx="2" style="animation-delay:400ms"/><rect class="hit fade" x="228" y="44" width="16" height="16" rx="2" style="animation-delay:480ms"/><rect class="hit fade" x="250" y="44" width="16" height="16" rx="2" style="animation-delay:560ms"/>
+<text class="l b" x="400" y="57" text-anchor="end">8 / 8</text>
+<text class="cap" x="0" y="96">WORST-CASE MARGIN</text>
+<rect class="track" x="0.5" y="106.5" width="330" height="18"/>
+<rect class="bar lead shrink" x="1" y="107" width="2" height="17"/>
+<text class="hl s fade" x="12" y="121" style="animation-delay:1500ms">0.2 s</text>
+<text class="l" x="0" y="166">Leak rate</text><text class="pass" x="72" y="166">PASS</text>
+<text class="l" x="134" y="166">Timing</text><text class="fail" x="186" y="166">FAIL</text>
+<text class="v" x="400" y="166" text-anchor="end">same run</text>
+<path class="sep" d="M0 196H400"/>
+<text class="q" x="0" y="214">Notional layered air and missile defense model. Parameter values</text>
+<text class="q" x="0" y="230">notional; models not yet validated. Result about the model, not</text>
+<text class="q" x="0" y="246">any fielded architecture. Committed and hashed.</text>
+</svg>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <h2>Differentiators</h2>
     <ul class="plain">
       <li><strong>Zero-footprint deployment.</strong> Runs in a standard browser on the machine the analyst already has. No installation, no backend to accredit, no workstation configuration &mdash; materially lowering the barrier to fielding analysis capability inside restricted enclaves.</li>
       <li><strong>Offline by default.</strong> Ships with its network gate closed and runs fully offline: no telemetry, no scenario upload, no external analysis service. Optional basemap imagery is the only network-capable feature and can be disabled or served locally.</li>
       <li><strong>Provable reproducibility.</strong> Every probabilistic outcome is keyed to the identity of the individual event rather than a global sequence. Adding an element to a scenario does not perturb unrelated outcomes &mdash; the property that makes a measured difference between design points attributable to the design, not to noise.</li>
       <li><strong>One engine, two modes.</strong> The interactive console and the batch analysis harness execute the same code on the same physics cadence. No data-generation versus presentation divergence to reconcile.</li>
-      <li><strong>Findings a nominal run reports as success.</strong> In a layered air and missile defense study, a raid of eight was fully intercepted with two tenths of a second of worst-case margin remaining &mdash; passing the leak-rate requirement and failing the timing requirement in the same run. In a multi-orbit missile-warning study, operator decision delay dominated every architecture parameter by roughly six to one. Both results are committed, hashed, and regenerable by a third party. Both are results about the model, not about any fielded architecture: parameter values are notional and the sensing models are not yet validated. What is demonstrated is the method and the reproducibility of the finding.</li>
       <li><strong>Safe to learn against.</strong> A measure whose event never occurs returns null, never a sentinel value, and requirement checks reject null &mdash; so an undetected threat can never score as comfortable margin, and an agent trained against the engine cannot learn to win by letting threats through.</li>
-      <li><strong>Screening scale, verified.</strong> Resolves all 30 main effects of a 30-parameter trade space in 32 runs, with two-factor interactions aliased by construction and the aliasing structure reported. The design is verified by automated test to be saturated, to keep every pair of columns orthogonal, to balance every column, and to recover a known effect from a synthetic response. Test output is committed and hashed.</li>
+      <li><strong>Screening scale, verified.</strong> The 32-run design shown under Findings is verified by automated test to be saturated, to keep every pair of columns orthogonal, to balance every column, and to recover a known effect from a synthetic response. Test output is committed and hashed.</li>
       <li><strong>Throughput.</strong> Approximately 1,000&ndash;3,000&times; real time on a single laptop core, scenario-dependent. A twelve-design-point study covering six engagement-hours completes in roughly ten seconds.</li>
       <li><strong>Engineering discipline evidenced, not asserted.</strong> 379 automated tests across 36 suites at tag v0.3.0, static type checking over both the application and the command-line analysis harness, generated software bill of materials, continuous integration, and a runnable timestep convergence study that reproduces its own verification result on demand.</li>
       <li><strong>Honest verification posture.</strong> The system is verified, and one component &mdash; orbital propagation including J2 secular perturbation &mdash; has been cross-checked against NASA GMAT, with the residual disagreement documented. No component is claimed as validated. Byte-identical reproduction is claimed for the same code on the same runtime, and every artefact records the version used. Capability and limitation are stated together.</li>
